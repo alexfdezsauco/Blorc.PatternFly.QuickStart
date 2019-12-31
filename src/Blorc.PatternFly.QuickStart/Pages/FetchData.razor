@@ -1,9 +1,21 @@
 ﻿@page "/fetchdata"
+
+@using System.Collections
+
+@using Blorc.Components
+@using Blorc.PatternFly.Components.Button
+@using Blorc.PatternFly.Components.Text
+@using Blorc.PatternFly.Components.Table
+
+
 @inject HttpClient Http
 
-<h1>Weather forecast</h1>
+<TextContent>
+    <Text Component="h1">Weather forecast</Text>
+    <Text Component="blockquote">This component demonstrates fetching data from the server.</Text>
+</TextContent>
 
-<p>This component demonstrates fetching data from the server.</p>
+<br />
 
 @if (forecasts == null)
 {
@@ -11,27 +23,16 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <Table Caption="Action Column" DataSource=@(()=> forecasts as IEnumerable)>
+        <Header>
+            <Row>
+                <Column Label="Date" Key="Date" IsSortable="true" Idx="0" />
+                <Column Label="Temp. (C)" Key="TemperatureC" IsSortable="true" Idx="1" />
+                <Column Label="Temp. (F)" Key="TemperatureF" IsSortable="true" Idx="2" />
+                <Column Label="Summary" Key="Summary" Idx="3" />
+            </Row>
+        </Header>
+    </Table>
 }
 
 @code {

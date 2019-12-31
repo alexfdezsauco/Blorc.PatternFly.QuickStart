@@ -1,16 +1,37 @@
 ﻿@page "/counter"
 
-<h1>Counter</h1>
+@using Blorc.Components
+@using Blorc.PatternFly.Components.Button
+@using Blorc.PatternFly.Components.Text
 
-<p>Current count: @currentCount</p>
+@inherits BlorcComponentBase
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<TextContent>
+    <Text Component="h1">Counter</Text>
+</TextContent>
+<TextContent>
+    <Text Component="blockquote">Current count: @CurrentCount</Text>
+</TextContent>
+<br />
+<Button Variant="ButtonVariant.Primary" OnClick=@((s,e) => IncrementCount())>Click me</Button>
 
 @code {
-    private int currentCount = 0;
+    public int CurrentCount
+    {
+        get { return GetPropertyValue<int>(nameof(CurrentCount)); }
+        set { SetPropertyValue(nameof(CurrentCount), value); }
+    }
 
     private void IncrementCount()
     {
-        currentCount++;
+        CurrentCount++;
+    }
+
+    protected override void OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if(e.PropertyName == nameof(CurrentCount))
+        {
+            StateHasChanged();
+        }
     }
 }
