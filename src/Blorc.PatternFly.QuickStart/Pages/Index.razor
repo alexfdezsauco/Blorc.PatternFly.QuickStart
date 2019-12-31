@@ -1,7 +1,13 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@using Blorc.PatternFly.Components.Text
 
-Welcome to your new app.
+
+<TextContent>
+    <Text Component="h1">Hello, world!</Text>
+    <Text Component="blockquote">Welcome to your new app.</Text>
+</TextContent>
+
+<br/>
 
 <SurveyPrompt Title="How is Blazor working for you?" />
