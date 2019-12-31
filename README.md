@@ -1,3 +1,3 @@
-# QuickStart.Blorc.PatternFly
+# Blorc.PatternFly.QuickStart
 
 Blorc.PatternFly quick start tutorial.
