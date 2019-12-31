@@ -1,0 +1,27 @@
+﻿@using Blorc.PatternFly.Components.Navigation
+@using Blorc.PatternFly.Components.Icon
+@using Blorc.PatternFly.Components.Badge
+@using Blorc.PatternFly.Layouts.Split
+
+<Navigation>
+    <Items>
+        <NavigationItem Title="Home" Link="/">
+            <Split IsGutter="true">
+                <SplitItem><HomeIcon /></SplitItem>
+                <SplitItem>Home</SplitItem>
+            </Split>
+        </NavigationItem>
+        <NavigationItem Link="/counter">
+            <Split IsGutter="true">
+                <SplitItem><PlusIcon /></SplitItem>
+                <SplitItem>Counter</SplitItem>
+            </Split>
+        </NavigationItem>
+        <NavigationItem Link="/fetchdata">
+            <Split IsGutter="true">
+                <SplitItem><ListIcon /></SplitItem>
+                <SplitItem>Fetch data</SplitItem>
+            </Split>
+        </NavigationItem>
+    </Items>
+</Navigation>

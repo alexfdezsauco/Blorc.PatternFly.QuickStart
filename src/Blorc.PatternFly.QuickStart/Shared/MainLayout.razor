@@ -1,0 +1,38 @@
+﻿@using Blorc.Dom.Injectors
+@using Blorc.Components
+@using Blorc.PatternFly.Layouts
+@using Blorc.PatternFly.Components.Page
+@using Blorc.PatternFly.Components.Button
+
+@inherits PatternFlyLayoutComponentBase
+
+@*<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>*@
+
+<Page>
+    <LogoContent>
+        QuickStart.Blorc.PatternFly
+    </LogoContent>
+    <ToolbarContent>
+        <Button Component="a" Variant="ButtonVariant.Primary" Href="http://blazor.net">
+            About
+        </Button>
+    </ToolbarContent>
+    <SidebarContent>
+        <NavMenu />
+    </SidebarContent>
+    <MainContent>
+        @Body
+    </MainContent>
+</Page>

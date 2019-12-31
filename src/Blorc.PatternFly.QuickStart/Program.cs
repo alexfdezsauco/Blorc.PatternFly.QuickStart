@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace QuickStart.Blorc.PatternFly
+namespace Blorc.PatternFly.QuickStart
 {
     public class Program
     {
