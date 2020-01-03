@@ -16,6 +16,9 @@
 <Button Variant="ButtonVariant.Primary" OnClick=@((s,e) => IncrementCount())>Click me</Button>
 
 @code {
+    // Blorc.Core comes with it’s own binding system and property bag
+    // implementations. This allows bindings and property change
+    // notifications out of the box
     public int CurrentCount
     {
         get { return GetPropertyValue<int>(nameof(CurrentCount)); }
